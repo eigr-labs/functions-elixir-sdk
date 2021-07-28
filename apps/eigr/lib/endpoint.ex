@@ -1,4 +1,4 @@
-defmodule Eigr.Grpc.Endpoint do
+defmodule Eigr.Endpoint do
   @moduledoc false
   use GRPC.Endpoint
 

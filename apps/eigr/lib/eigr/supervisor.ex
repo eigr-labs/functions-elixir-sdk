@@ -1,4 +1,4 @@
-defmodule Eigr.EntitySupervisor do
+defmodule Eigr.Supervisor do
   @moduledoc """
   A Eigr Elixir support library.
   You can add it to your Supervisor tree as below.
@@ -24,7 +24,7 @@ defmodule Eigr.EntitySupervisor do
         }
 
         children = [
-          {Eigr.EntitySupervisor, entity_spec}
+          {Eigr.Supervisor, entity_spec}
         ]
 
         opts = [strategy: :one_for_one, name: Shoppingcart.Supervisor]
@@ -93,7 +93,7 @@ defmodule Eigr.EntitySupervisor do
     do: [{Eigr.EntityDiscovery.Handler, entity_spec}]
 
   defp get_grpc(%EntitySpec{port: port} = _entity_spec),
-    do: [{GRPC.Server.Supervisor, {Eigr.Grpc.Endpoint, port}}]
+    do: [{GRPC.Server.Supervisor, {Eigr.Endpoint, port}}]
 
   defp put_env(key, value),
     do: Application.put_env(:Eigr, key, value, persistent: true)
