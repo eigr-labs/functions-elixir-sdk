@@ -18,10 +18,10 @@ defmodule Pong do
         }
 end
 
-defmodule ActionEntityTest do
-  use Eigr.ActionEntity
+defmodule ActionEntityUnaryTest do
+  use Eigr.Action.Entity
 
-  defimpl Eigr.Action do
+  defimpl Eigr.Action.Unary do
     def handle_unary(context, %Ping{name: name} = request) do
       {:reply, %Pong{name: name}}
     end

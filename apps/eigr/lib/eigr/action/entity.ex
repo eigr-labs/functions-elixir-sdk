@@ -1,4 +1,4 @@
-defmodule Eigr.ActionEntity do
+defmodule Eigr.Action.Entity do
   @moduledoc """
   EntryPoint for Action entities.
   """
