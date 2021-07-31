@@ -1,18 +1,28 @@
 defmodule ActionTest do
   use ExUnit.Case
 
-  test "Unary call" do
-    test_action = ActionEntityUnaryTest.new(context: %{})
+  test "simple unary call" do
+    unary_action = ActionEntityUnaryTest.new(context: %{})
 
     assert {:reply, %Pong{name: "Anakin Skywalker"}} =
-             Eigr.Action.Unary.handle_unary(test_action, %Ping{name: "Anakin Skywalker"})
+             Eigr.Action.Unary.handle_unary(unary_action, %Ping{name: "Anakin Skywalker"})
   end
 
-  test "Response SideEffects" do
-    test_action = ActionEntityUnaryTest.new(context: %{})
+  test "unary response with SideEffects" do
+    unary_action = ActionEntityUnaryTest.new(context: %{})
 
     assert {:reply, %Ping{name: "Pong"},
             %Eigr.SideEffect{service_name: "test_service", command_name: "echo"}} =
-             Eigr.Action.Unary.handle_unary(test_action, %Pong{})
+             Eigr.Action.Unary.handle_unary(unary_action, %Pong{})
+  end
+
+  test "streamin simple call" do
+    stream_in_action = ActionEntityStreamInTest.new(context: %{})
+
+    stream =
+      [%Ping{name: "Ping"}, %Ping{name: "Ping"}, %Ping{name: "Ping"}]
+      |> Stream.map(fn elem -> elem end)
+
+    assert %Ping{name: "Pooong"} = Eigr.Action.StreamIn.handle_stream_in(stream_in_action, stream)
   end
 end
