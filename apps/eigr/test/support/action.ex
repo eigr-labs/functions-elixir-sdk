@@ -18,8 +18,8 @@ defmodule Pong do
         }
 end
 
-defmodule ActionEntity do
-  defstruct [:context]
+defmodule ActionEntityTest do
+  use Eigr.ActionEntity
 
   defimpl Eigr.Action do
     def handle_unary(context, %Ping{name: name} = request) do

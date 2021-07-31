@@ -1,4 +1,6 @@
 defmodule ActionContext do
+  defstruct [:entity_id]
+
   @type from :: pid()
 
   @spec send_reply(from(), any()) :: nil
