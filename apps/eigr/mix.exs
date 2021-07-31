@@ -13,7 +13,9 @@ defmodule Eigr.MixProject do
       start_permanent: Mix.env() == :prod,
       description: description(),
       package: package(),
-      deps: deps()
+      deps: deps(),
+      elixirc_paths: elixirc_paths(Mix.env()),
+      consolidate_protocols: Mix.env() != :test
     ]
   end
 
@@ -56,4 +58,7 @@ defmodule Eigr.MixProject do
       links: %{"GitHub" => "https://github.com/eigr/Eigr-elixir"}
     ]
   end
+
+  defp elixirc_paths(:test), do: ["lib", "test/support"]
+  defp elixirc_paths(_), do: ["lib"]
 end
