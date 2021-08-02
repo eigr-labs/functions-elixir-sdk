@@ -1,4 +1,4 @@
-defprotocol Eigr.Action.Unary do
+defprotocol Eigr.Action.Protocol.Unary do
   @moduledoc """
   Behaviour for Action Protocol.
   """

@@ -1,4 +1,4 @@
-defprotocol Eigr.Action.StreamIn do
+defprotocol Eigr.Action.Protocol.StreamIn do
   @moduledoc """
   Behaviour for Action Protocol.
   """

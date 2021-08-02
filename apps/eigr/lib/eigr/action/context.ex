@@ -1,6 +1,10 @@
 defmodule ActionContext do
   defstruct [:entity_id]
 
+  @type t :: %__MODULE__{
+          entity_id: String.t()
+        }
+
   @type from :: pid()
 
   @spec send_reply(from(), any()) :: nil
