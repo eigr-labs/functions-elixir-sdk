@@ -43,9 +43,7 @@ defmodule Permastate.Action.Handler do
 
       {:reply, data, side_effects} ->
         Logger.debug(
-          "Entity Function reply with data: #{inspect(data)} and Side Effects: #{
-            inspect(side_effects)
-          }"
+          "Entity Function reply with data: #{inspect(data)} and Side Effects: #{inspect(side_effects)}"
         )
 
         %Cloudstate.Action.ActionResponse{}
@@ -57,9 +55,7 @@ defmodule Permastate.Action.Handler do
 
       {:forward, data, side_effects} ->
         Logger.debug(
-          "Entity Function forward with data: #{inspect(data)} and Side Effects: #{
-            inspect(side_effects)
-          }"
+          "Entity Function forward with data: #{inspect(data)} and Side Effects: #{inspect(side_effects)}"
         )
 
         %Cloudstate.Action.ActionResponse{}

@@ -11,11 +11,7 @@ defmodule Permastate.EntityDiscovery.Handler do
   @impl true
   def handle_call({:proxy_info, proxy_info}, _from, entity_spec) do
     Logger.info(
-      "Received discovery call from [#{inspect(proxy_info.proxy_name)} #{
-        inspect(proxy_info.proxy_version)
-      }] supporting Cloudstate protocol #{inspect(proxy_info.protocol_major_version)}.#{
-        inspect(proxy_info.protocol_minor_version)
-      }"
+      "Received discovery call from [#{inspect(proxy_info.proxy_name)} #{inspect(proxy_info.proxy_version)}] supporting Cloudstate protocol #{inspect(proxy_info.protocol_major_version)}.#{inspect(proxy_info.protocol_minor_version)}"
     )
 
     Logger.debug("Supported sidecar entity types: #{inspect(proxy_info.supported_entity_types)}")
