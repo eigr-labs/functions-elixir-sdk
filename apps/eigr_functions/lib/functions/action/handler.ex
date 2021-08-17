@@ -35,7 +35,7 @@ defmodule Functions.Action.Handler do
   defp handle_unary(service, command) do
     payload = command.payload
 
-    case service.handle_unary(payload) do
+    case Functions.Action.Protocol.Unary.handle_unary(service, payload) do
       {:reply, data} ->
         Logger.debug("Entity Function reply with data: #{inspect(data)}")
 
