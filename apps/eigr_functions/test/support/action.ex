@@ -40,7 +40,6 @@ defmodule ActionEntityStreamInTest do
     def handle_stream_in(_context, stream) do
       Stream.map(stream, fn _elem -> %Ping{name: "Pooong"} end)
       |> Stream.take(1)
-      |> Enum.to_list()
       |> Enum.fetch!(0)
     end
   end
@@ -64,7 +63,6 @@ defmodule ActionEntityMultiRequestTypeTest do
     def handle_stream_in(_context, stream) do
       Stream.map(stream, fn _elem -> %Ping{name: "Pooong"} end)
       |> Stream.take(1)
-      |> Enum.to_list()
       |> Enum.fetch!(0)
     end
   end

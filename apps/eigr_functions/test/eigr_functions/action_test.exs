@@ -3,11 +3,10 @@ defmodule ActionTest do
 
   test "simple unary call" do
     unary_action = ActionEntityUnaryTest.new(context: %{})
+    request = %Ping{name: "Anakin Skywalker"}
 
     assert {:reply, %Pong{name: "Anakin Skywalker"}} =
-             Functions.Action.Protocol.Unary.handle_unary(unary_action, %Ping{
-               name: "Anakin Skywalker"
-             })
+             Functions.Action.Protocol.Unary.handle_unary(unary_action, request)
   end
 
   test "unary response with SideEffects" do
